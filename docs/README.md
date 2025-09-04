@@ -1,4 +1,4 @@
-# my-aspnet-app/docs/README.md
+# tumisugi-app/docs/README.md
 
 # My ASP.NET App
 
@@ -13,6 +13,5 @@
 
 - `src/`: ASP.NET Core MVCプロジェクトが追加されるディレクトリです。
 - `docs/`: プロジェクトに関するドキュメントが格納されています。
-- `.gitignore`: Gitで無視するファイルやディレクトリのリストです。
 
 このプロジェクトの詳細については、各ドキュメントを参照してください。
