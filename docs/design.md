@@ -1,3 +1,5 @@
+# 以下テンプレート
+
 # Application Design Document
 
 ## Overview
