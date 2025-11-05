@@ -7,9 +7,15 @@
 
 ## 1. テーブル一覧
 
-| テーブル名 | 説明               |
+| テーブル名  | 説明               |
 |------------|--------------------|
-| Games      | ゲーム情報を格納   |
+| TUMI_MANAGE     | 積みものの情報を管理するテーブル。積んだアイテムが登録される。|
+| TUMI_HISTORY    | 積みもの状態の期間が登録されるテーブル|
+| - マスタテーブル -
+| M_GENRE_MAJOR   | 積みもの大ジャンルのマスタ(geme, anime ...)|
+| M_STATUS        | 積みもの状態のマスタ|
+| M_PLATFORM      | 積みものプラットフォームのマスタ|
+| M_GENRE_DETAIL  | 積みもの小ジャンルのマスタ(action, RPG ...)|
 
 ---
 
@@ -17,7 +23,7 @@
 
 ### 2.1. Games
 
-| Column Name   | Data Type      | Nullable | Description                       |
+| Column Name   | Data Type     | Nullable | Description                       |
 |---------------|---------------|----------|-----------------------------------|
 | Id            | int           | No       | Primary key (auto-increment)      |
 | Title         | string (100)  | No       | Game title                        |
