@@ -21,17 +21,19 @@
 
 ## 2. テーブル定義
 
-### 2.1. Games
+### 2.1. TUMI_MANAGE テーブル
 
 | Column Name   | Data Type     | Nullable | Description                       |
 |---------------|---------------|----------|-----------------------------------|
-| Id            | int           | No       | Primary key (auto-increment)      |
-| Title         | string (100)  | No       | Game title                        |
-| Genre         | string (50)   | Yes      | Game genre                        |
-| Status        | string (20)   | No       | Game status (e.g. Backlog, Playing, Cleared) |
-| Memo          | string (500)  | Yes      | Free memo field                   |
-| CreatedAt     | DateTime      | No       | Registration date                 |
-| UpdatedAt     | DateTime      | Yes      | Last updated date                 |
+| ID            | INTEGER       | No       | PK (auto-increment)               |
+| NAME          | TEXT          | No       | 積みものタイトル                    |
+| USER_CODE     | INTEGER       | No       | ログイン機能が実装された場合の拡張要素。今回は１固定                        |
+| GENRE_MAJOR_CODE | INTEGER       | No       | FK (M_GENRE_MAJOR)                |
+| GENRE_DETAIL_CODE| INTEGER       | No       | FK (M_GENRE_DETAIL)               |
+| STATUS_CODE   | INTEGER       | No       | FK (M_STATUS)                     |
+| PLATFORM_CODE | INTEGER       | No       | FK (M_PLATFORM)                   |
+| MEMO          | TEXT          | YES      | メモ　　　　　　　　　　　　　　　　　|
+| UPDATE_AT     | TEXT          | No       | 更新日付　　　　　　　　　　　　　　　|
 
 ---
 
