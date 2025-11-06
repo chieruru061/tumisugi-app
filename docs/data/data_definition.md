@@ -1,4 +1,4 @@
-# データ定義書
+# テーブル定義書
 
 このドキュメントは「Tumisugi」アプリケーションのデータ構造を定義します。  
 要件に基づき、Entity Framework Coreでの利用を想定しています。
@@ -23,6 +23,7 @@
 
 ### 2.1. TUMI_MANAGE テーブル
 
+[トランザクションテーブル]
 | Column Name   | Data Type     | Nullable | Description                       |
 |---------------|---------------|----------|-----------------------------------|
 | ID            | INTEGER       | No       | PK (auto-increment)               |
@@ -35,6 +36,52 @@
 | MEMO          | TEXT          | YES      | メモ　　　　　　　　　　　　　　　　　|
 | UPDATE_AT     | TEXT          | No       | 更新日付　　　　　　　　　　　　　　　|
 
+### 2.2. TUMI_HISTORY テーブル
+
+[トランザクションテーブル]
+| Column Name   | Data Type     | Nullable | Description                       |
+|---------------|---------------|----------|-----------------------------------|
+| ID            | INTEGER       | No       | PK (auto-increment)               |
+| TUMI_ID       | INTEGER       | No       | FK (TUMI_MANAGE)                  |
+| STATUS_CODE   | TEXT          | No       | FK (M_STATUS)                     |
+| UPDATE_AT     | TEXT          | No       | 更新日付                           |
+
+### 2.3. M_GENRE_MAJOR テーブル
+
+[マスタテーブル]
+| Column Name   | Data Type     | Nullable | Description                       |
+|---------------|---------------|----------|-----------------------------------|
+| CODE          | INTEGER       | No       | PK (auto-increment)               |
+| NAME          | TEXT          | No       |                                   |
+| UPDATE_AT     | TEXT          | No       | 更新日付                           |
+
+### 2.4. M_GENRE_DETAIL テーブル
+
+[マスタテーブル]
+| Column Name   | Data Type     | Nullable | Description                       |
+|---------------|---------------|----------|-----------------------------------|
+| CODE          | INTEGER       | No       | PK (auto-increment)               |
+| MAJOR_CODE    | INTEGER       | No       | FK (M_GENRE_MAJOR)                |
+| NAME          | TEXT          | No       |                                   |
+| UPDATE_AT     | TEXT          | No       | 更新日付                           |
+
+### 2.5. M_STATUS テーブル
+
+[マスタテーブル]
+| Column Name   | Data Type     | Nullable | Description                       |
+|---------------|---------------|----------|-----------------------------------|
+| CODE          | INTEGER       | No       | PK (auto-increment)               |
+| NAME          | TEXT          | No       |                                   |
+| UPDATE_AT     | TEXT          | No       | 更新日付                           |
+
+### 2.6. M_PLATFORM テーブル
+
+[マスタテーブル]
+| Column Name   | Data Type     | Nullable | Description                       |
+|---------------|---------------|----------|-----------------------------------|
+| CODE          | INTEGER       | No       | PK (auto-increment)               |
+| NAME          | TEXT          | No       |                                   |
+| UPDATE_AT     | TEXT          | No       | 更新日付                           |
 ---
 
 ## 3. 備考
