@@ -1,33 +1,24 @@
-# 以下テンプレート
+# アプリケーション設計
 
-# Application Design Document
+## 1. 概要
+- 名称: Tumisugi（仮）
+- 目的: 積みゲームや積みアニメを管理するためのアプリケーション。積みものと呼ぶ。
+ASP.NET CoreとEF Coreの学習を第1とする
+- 想定ユーザ: 単一ローカルユーザ(俺)
 
-## Overview
-This document outlines the design of the ASP.NET Core MVC application. It includes architectural decisions, technology stack, and key components of the application.
-
-## Architecture
-The application follows the Model-View-Controller (MVC) architectural pattern, which separates the application into three main components:
-- **Model**: Represents the application's data and business logic.
-- **View**: Responsible for rendering the user interface and displaying data to the user.
-- **Controller**: Handles user input, interacts with the model, and selects the view to render.
-
-## Technology Stack
-- **Framework**: ASP.NET Core
+## 2. 技術スタック
+- **Framework**: ASP.NET Core, EF Core
 - **Language**: C#
-- **Database**: (To be determined, e.g., SQL Server, SQLite)
-- **Frontend**: HTML, CSS, JavaScript (with optional frameworks like Bootstrap or React)
+- **Database**: SQLite
+- **Frontend**: Razor(ASP.NET Core)
 
-## Key Components
-1. **Models**: Define the data structures and business logic.
-2. **Views**: Create user interfaces using Razor syntax.
-3. **Controllers**: Manage the flow of data between models and views.
-4. **Services**: Implement business logic and data access.
-5. **Middleware**: Handle requests and responses, including authentication and logging.
+## 3. 画面一覧
+- 画面: お積みもの一覧 [ワイヤーフレーム](wireframe/list.png)
+- 画面: お積みもの追加 [ワイヤーフレーム](wireframe/add.png)
+- 画面: お積みもの詳細 [ワイヤーフレーム](wireframe/detail.png)
+- 画面: お積みもの削除 [ワイヤーフレーム](wireframe/delete.png)
 
-## Future Considerations
-- Integration with third-party APIs.
-- Implementation of user authentication and authorization.
-- Responsive design for mobile compatibility.
+## 4. DB設計
+- [テーブル定義書](data/data_definition.md)
 
-## Conclusion
-This design document serves as a foundation for the development of the ASP.NET Core MVC application. Further details will be added as the project progresses.
+## 5. 機能設計
