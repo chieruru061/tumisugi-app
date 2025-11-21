@@ -11,7 +11,6 @@
 ## 機能一覧
 ※DDL: ドロップダウンリスト
 
-
 ※お積みもの一覧のデフォルト表示順は積み状態の昇順, 更新日の降順とする。
 
 ### 初期表示
@@ -94,7 +93,7 @@
 ## API / コントローラ設計（例）
 - Controller: GamesController
   - GET /Games/Index?page={}&pageSize={}&sort={}&genre={}&status={}
-  - Response: JSON / RazorView
+  - Response: RazorView
 
 ## 例外処理とログ
 - 例外はサービス層でキャッチして、ユーザには一般的なメッセージを表示
