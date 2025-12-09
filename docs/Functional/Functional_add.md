@@ -18,17 +18,6 @@
     3. プラットフォームDDLに表示する、プラットフォーム一覧
 2. Viewは受け取った情報をDDLに設定
 
-### 検索
-1. ユーザは検索条件を入力し、検索を行うことができる。
-2. 検索条件
-    1. カテゴリDDL
-    2. 積み状態DDL
-    3. プラットフォームDDL
-    4. タイトルテキストボックス
-3. 検索ボタン押下で、controllerにパラメータとして検索条件を渡す
-4. controllerは検索条件に合致するお積みもの一覧情報を返却する
-5. Viewは受け取ったお積みもの一覧情報を10件ずつ表示する
-
 ### 追加ボタン
 1. 入力バリデーションを実施する
 2. バリデーションエラーがない場合、controllerにフォーム情報を渡す
@@ -51,15 +40,20 @@
 - 戻るボタン
 
 ## バリデーション
-- TODO: 将来追加予定
   - 長さチェック
   - 禁止文字チェック(例: SQLインジェクション対策,XSS対策)
   - 空白・全角スペースの正規化
   - 文字種の正規化(例: 全角→半角)
 
-## API / コントローラ設計（例）
-- Controller: GamesController
-  - GET /Games/Index?page={}&pageSize={}&sort={}&genre={}&status={}
+## API / コントローラ設計
+※条件入力が空ならクエリ文字列に含めない。
+- Controller: Index()
+  - GET /Add/Index
+  - Response: RazorView
+- Controller: Create()
+  - POST /Add/Create
+  
+  body={title,genre,status,platform,memo}
   - Response: RazorView
 
 ## 例外処理とログ
