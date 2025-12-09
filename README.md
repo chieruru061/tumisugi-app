@@ -21,7 +21,7 @@ tumisugi-app/
 │   │   ├── Functional_List.md (一覧機能)
 │   │   └── Functional_add.md (追加機能)
 │   │   └── ...
-│   ├── Wireframe/ (ワイヤーフレーム - 作成予定)
+│   ├── Wireframe/ (ワイヤーフレーム)
 │   │   ├── List.md
 │   │   ├── Add.md
 │   │   └── ...
