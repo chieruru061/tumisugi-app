@@ -17,10 +17,10 @@
 2. Viewは受け取ったお積みもの詳細情報を各表示項目に設定
 
 ### 削除ボタン
-1. 入力バリデーションを実施する
-2. バリデーションエラーがない場合、controllerにフォーム情報を渡す
-3. controllerはお積みもの情報をDBに登録する
-※画面遷移は行わない
+1. 削除確認のモーダルを表示する
+2. ユーザが削除を確定した場合、controllerにお積みものIDを渡す
+3. controllerはお積みもの情報をDBから削除する
+4. 削除成功後、お積みもの一覧画面にリダイレクトする
 
 ### 戻るボタン
 1. お積みもの一覧画面に遷移する
@@ -51,7 +51,7 @@
 - Controller: Update()
   - POST /Add/Create
   
-  body={title,genre,status,platform,memo}
+  body={tumiId,title,genre,status,platform,memo}
   - Response: RazorView
 
 ## 例外処理とログ
