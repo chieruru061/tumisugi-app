@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 namespace tumisugi_app.Models.Entities
 {
     /// <summary>
-    /// プラットフォームEntity
+    /// 積み状態Entity
     /// </summary>
-    public class Platform
+    public class Status
     {
         // 主キー
         [Key]
