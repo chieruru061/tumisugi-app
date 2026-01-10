@@ -1,4 +1,22 @@
+using Microsoft.EntityFrameworkCore;
+using TumisugiApp.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+#region SQLiteへの接続
+// SQLite配置dir
+var dataDir = Path.Combine(AppContext.BaseDirectory, "Data");
+Directory.CreateDirectory(dataDir);
+
+// appsetting.jsonの接続文字列取得
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")?
+                        .Replace("tumisugi.db", Path.Combine(dataDir, "tumisugi.db"));
+
+// DbContextに接続文字列を渡す
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite(connectionString));
+
+#endregion
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace tumisugi_app.Models.Entities
+namespace TumisugiApp.Models.Entities
 {
     /// <summary>
     /// 積み状態Entity
