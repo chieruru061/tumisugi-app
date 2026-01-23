@@ -3,7 +3,7 @@ using TumisugiApp.Models.Entities;
 
 namespace TumisugiApp.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
         public DbSet<TumiManagement> TumiManagements { get; set; }
         public DbSet<TumiHistory> TumiHistories { get; set; }

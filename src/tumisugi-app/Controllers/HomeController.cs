@@ -1,16 +1,23 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using tumisugi_app.Models;
+using TumisugiApp.Data;
 
 namespace tumisugi_app.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly AppDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(AppDbContext context)
     {
-        _logger = logger;
+        _context = context;
+    }
+
+    public IActionResult Test()
+    {
+        var count = _context.TumiManagements.Count();
+        return Content($"Tumi count: {count}");
     }
 
     public IActionResult Index()
