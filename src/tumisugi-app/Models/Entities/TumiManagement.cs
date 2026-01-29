@@ -14,16 +14,16 @@ namespace TumisugiApp.Models.Entities
         // 大きな単位でのジャンル
         // var1.0はゲームのみを扱う
         public required int GenreMajorCode { get; set;}
-        public required GenreMajor? GenreMajor { get; set; }
+        public GenreMajor? GenreMajor { get; set; }
         // 詳細分類
         public required int GanreDetailCode { get; set; }
-        public required GenreDetail? GenreDetail { get; set; }
+        public GenreDetail? GenreDetail { get; set; }
         // 状態
         public required int StatusCode { get; set; }
-        public required Status? Status { get; set; }
+        public Status? Status { get; set; }
         // プラットフォーム
         public required int PlatformCode { get; set; }
-        public required Platform? Platform { get; set; }
+        public Platform? Platform { get; set; }
         // メモ
         public string? Memo { get; set; }
         // 更新日付
