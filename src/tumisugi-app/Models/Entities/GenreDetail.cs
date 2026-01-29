@@ -12,7 +12,7 @@ namespace TumisugiApp.Models.Entities
         public int Code { get; set; }
         // GenreMajorの外部キー
         public int GenreMajorCode { get; set; }
-        public required GenreMajor GenreMajor { get; set; }
+        public GenreMajor? GenreMajor { get; set; }
         public required string Name { get; set; } = null!;
         public required string UpdateAt { get; set; } = null!;
     }
