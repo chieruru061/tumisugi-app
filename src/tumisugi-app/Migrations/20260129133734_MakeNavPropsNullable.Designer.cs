@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TumisugiApp.Data;
 
@@ -10,9 +11,11 @@ using TumisugiApp.Data;
 namespace TumisugiApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260129133734_MakeNavPropsNullable")]
+    partial class MakeNavPropsNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
@@ -39,78 +42,6 @@ namespace TumisugiApp.Migrations
                     b.HasIndex("GenreMajorCode");
 
                     b.ToTable("GetGenreDetails");
-
-                    b.HasData(
-                        new
-                        {
-                            Code = 1,
-                            GenreMajorCode = 1,
-                            Name = "RPG",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 2,
-                            GenreMajorCode = 1,
-                            Name = "アクション",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 3,
-                            GenreMajorCode = 1,
-                            Name = "アドベンチャー",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 4,
-                            GenreMajorCode = 1,
-                            Name = "ストラテジ",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 5,
-                            GenreMajorCode = 1,
-                            Name = "レース",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 6,
-                            GenreMajorCode = 1,
-                            Name = "音ゲー",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 7,
-                            GenreMajorCode = 1,
-                            Name = "STG",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 8,
-                            GenreMajorCode = 1,
-                            Name = "カード",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 9,
-                            GenreMajorCode = 1,
-                            Name = "ギャルゲ",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 99,
-                            GenreMajorCode = 1,
-                            Name = "その他",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        });
                 });
 
             modelBuilder.Entity("TumisugiApp.Models.Entities.GenreMajor", b =>
@@ -169,44 +100,6 @@ namespace TumisugiApp.Migrations
                     b.HasKey("Code");
 
                     b.ToTable("Platforms");
-
-                    b.HasData(
-                        new
-                        {
-                            Code = 1,
-                            Name = "PC",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 2,
-                            Name = "PlayStation",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 3,
-                            Name = "Switch",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 4,
-                            Name = "Mobile",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 5,
-                            Name = "Web",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 6,
-                            Name = "others",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        });
                 });
 
             modelBuilder.Entity("TumisugiApp.Models.Entities.Status", b =>
@@ -226,38 +119,6 @@ namespace TumisugiApp.Migrations
                     b.HasKey("Code");
 
                     b.ToTable("Statuses");
-
-                    b.HasData(
-                        new
-                        {
-                            Code = 1,
-                            Name = "未購入",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 2,
-                            Name = "未プレイ",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 3,
-                            Name = "放置中",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 4,
-                            Name = "プレイ中",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        },
-                        new
-                        {
-                            Code = 5,
-                            Name = "積み解消",
-                            UpdateAt = "2026-01-28 00:00:00"
-                        });
                 });
 
             modelBuilder.Entity("TumisugiApp.Models.Entities.TumiHistory", b =>
@@ -286,15 +147,6 @@ namespace TumisugiApp.Migrations
                     b.HasIndex("TumiManageId");
 
                     b.ToTable("TumiHistories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            StatusCode = 3,
-                            TumiId = 1,
-                            UpdateAt = "2026-01-28 00:00:00"
-                        });
                 });
 
             modelBuilder.Entity("TumisugiApp.Models.Entities.TumiManagement", b =>
@@ -340,19 +192,6 @@ namespace TumisugiApp.Migrations
                     b.HasIndex("StatusCode");
 
                     b.ToTable("TumiManagements");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            GanreDetailCode = 1,
-                            GenreMajorCode = 1,
-                            Memo = "セイバールートのみクリアしているが他ルートもやりたい...",
-                            Name = "Fate/StayNight",
-                            PlatformCode = 1,
-                            StatusCode = 3,
-                            UpdateAt = "2026-01-28 00:00:00"
-                        });
                 });
 
             modelBuilder.Entity("TumisugiApp.Models.Entities.GenreDetail", b =>
