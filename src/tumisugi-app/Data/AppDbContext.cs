@@ -61,7 +61,7 @@ namespace TumisugiApp.Data
                     Id = 1,
                     Name = "Fate/StayNight",
                     GenreMajorCode = 1,
-                    GanreDetailCode = 1,
+                    GenreDetailCode = 1,
                     StatusCode = 3,
                     PlatformCode = 1,
                     Memo = "セイバールートのみクリアしているが他ルートもやりたい...",
@@ -70,7 +70,7 @@ namespace TumisugiApp.Data
             );
 
             modelBuilder.Entity<TumiHistory>().HasData(
-                new TumiHistory { Id = 1, TumiId = 1, StatusCode = 3, UpdateAt = "2026-01-28 00:00:00"}
+                new TumiHistory { Id = 1, TumiManageId = 1, StatusCode = 3, UpdateAt = "2026-01-28 00:00:00"}
             );
         }
     }

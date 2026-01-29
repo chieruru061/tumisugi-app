@@ -2,10 +2,12 @@
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace TumisugiApp.Migrations
 {
     /// <inheritdoc />
-    public partial class initialCreate : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -81,7 +83,6 @@ namespace TumisugiApp.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     GenreMajorCode = table.Column<int>(type: "INTEGER", nullable: false),
-                    GanreDetailCode = table.Column<int>(type: "INTEGER", nullable: false),
                     GenreDetailCode = table.Column<int>(type: "INTEGER", nullable: false),
                     StatusCode = table.Column<int>(type: "INTEGER", nullable: false),
                     PlatformCode = table.Column<int>(type: "INTEGER", nullable: false),
@@ -123,7 +124,6 @@ namespace TumisugiApp.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    TumiId = table.Column<int>(type: "INTEGER", nullable: false),
                     TumiManageId = table.Column<int>(type: "INTEGER", nullable: false),
                     StatusCode = table.Column<int>(type: "INTEGER", nullable: false),
                     UpdateAt = table.Column<string>(type: "TEXT", nullable: false)
@@ -144,6 +144,68 @@ namespace TumisugiApp.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "GetGenreMajors",
+                columns: new[] { "Code", "Name", "UpdateAt" },
+                values: new object[,]
+                {
+                    { 1, "Game", "2026-01-28 00:00:00" },
+                    { 2, "Anime", "2026-01-28 00:00:00" },
+                    { 3, "Book", "2026-01-28 00:00:00" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Platforms",
+                columns: new[] { "Code", "Name", "UpdateAt" },
+                values: new object[,]
+                {
+                    { 1, "PC", "2026-01-28 00:00:00" },
+                    { 2, "PlayStation", "2026-01-28 00:00:00" },
+                    { 3, "Switch", "2026-01-28 00:00:00" },
+                    { 4, "Mobile", "2026-01-28 00:00:00" },
+                    { 5, "Web", "2026-01-28 00:00:00" },
+                    { 6, "others", "2026-01-28 00:00:00" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Statuses",
+                columns: new[] { "Code", "Name", "UpdateAt" },
+                values: new object[,]
+                {
+                    { 1, "未購入", "2026-01-28 00:00:00" },
+                    { 2, "未プレイ", "2026-01-28 00:00:00" },
+                    { 3, "放置中", "2026-01-28 00:00:00" },
+                    { 4, "プレイ中", "2026-01-28 00:00:00" },
+                    { 5, "積み解消", "2026-01-28 00:00:00" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "GetGenreDetails",
+                columns: new[] { "Code", "GenreMajorCode", "Name", "UpdateAt" },
+                values: new object[,]
+                {
+                    { 1, 1, "RPG", "2026-01-28 00:00:00" },
+                    { 2, 1, "アクション", "2026-01-28 00:00:00" },
+                    { 3, 1, "アドベンチャー", "2026-01-28 00:00:00" },
+                    { 4, 1, "ストラテジ", "2026-01-28 00:00:00" },
+                    { 5, 1, "レース", "2026-01-28 00:00:00" },
+                    { 6, 1, "音ゲー", "2026-01-28 00:00:00" },
+                    { 7, 1, "STG", "2026-01-28 00:00:00" },
+                    { 8, 1, "カード", "2026-01-28 00:00:00" },
+                    { 9, 1, "ギャルゲ", "2026-01-28 00:00:00" },
+                    { 99, 1, "その他", "2026-01-28 00:00:00" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "TumiManagements",
+                columns: new[] { "Id", "GenreDetailCode", "GenreMajorCode", "Memo", "Name", "PlatformCode", "StatusCode", "UpdateAt" },
+                values: new object[] { 1, 1, 1, "セイバールートのみクリアしているが他ルートもやりたい...", "Fate/StayNight", 1, 3, "2026-01-28 00:00:00" });
+
+            migrationBuilder.InsertData(
+                table: "TumiHistories",
+                columns: new[] { "Id", "StatusCode", "TumiManageId", "UpdateAt" },
+                values: new object[] { 1, 3, 1, "2026-01-28 00:00:00" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_GetGenreDetails_GenreMajorCode",

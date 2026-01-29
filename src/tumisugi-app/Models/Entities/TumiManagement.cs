@@ -16,7 +16,7 @@ namespace TumisugiApp.Models.Entities
         public required int GenreMajorCode { get; set;}
         public GenreMajor? GenreMajor { get; set; }
         // 詳細分類
-        public required int GanreDetailCode { get; set; }
+        public required int GenreDetailCode { get; set; }
         public GenreDetail? GenreDetail { get; set; }
         // 状態
         public required int StatusCode { get; set; }

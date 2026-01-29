@@ -8,7 +8,7 @@ namespace TumisugiApp.Models.Entities
         [Key]
         public int Id { get; set; }
         // 積みID 外部キー
-        public required int TumiId { get; set; }
+        public required int TumiManageId { get; set; }
         public TumiManagement? TumiManage { get; set; }
         // 状態
         public required int StatusCode { get; set; }
