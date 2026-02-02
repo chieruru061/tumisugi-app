@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace TumisugiApp.Models.ViewModels
 {
     /// <summary>
-    /// お積みものViewModel
+    /// お積みものViewModel. お積みもの1recordを表現する。
     /// </summary>
     public class TumiItemViewModel
     {
