@@ -92,10 +92,10 @@
 ## API / コントローラ設計
 ※条件入力が空ならクエリ文字列に含めない。
 - Controller: Index()
-  - GET /List/Index?page={1}&pageSize={10}&sort={Status:Asc,UpdateAt:Desc}
+  - GET /List/Index?page={1}&sort={Status:Asc,UpdateAt:Desc}
   - Response: RazorView
 - Controller: Search()
-  - GET /List/Search?page={ページャ番号}&pageSize={10}&sort={ソート対象を表す数値:1or2,4:2}&title={検索テキストボックス}&genre={カテゴリDDLの値}&status={積み状態DDLの値}&platform={プラットフォームDDLの値}
+  - GET /List/Search?page={ページャ番号}&sort={ソート対象:[Asc/Desc],ソート対象:[Asc/Desc] ...}&title={検索テキストボックス}&genre={カテゴリDDLの値}&status={積み状態DDLの値}&platform={プラットフォームDDLの値}
   - Response: RazorView
 
 ## 例外処理とログ
