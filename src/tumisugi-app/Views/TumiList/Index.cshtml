@@ -1,8 +1,18 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "積みものリスト";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<div></div>
+<h1>お積みもの</h1>
+<hr />
+
+<!-- 検索フォーム -->
+<form method="get" asp-action="Index">
+    <div>
+        <label for="SelectedGenre">カテゴリ:</label>
+        <select id="SelectedGenre" name="SelectedGenre">
+            <option value="">すべて</option>
+            <!-- ジャンルオプションを動的に追加 -->
+        </select>
+    </div>
+</form>

@@ -38,13 +38,12 @@ namespace TumisugiApp.Models.ViewModels
     /// </summary>
     public class TumiListRequestViewModel
     {
-        public int Page { get; set; } // ページ
-        //public int page//ソート
+        public int Page { get; set; } // ページ       
+        public string? Sort { get; set; }  // ソート
         public string? SearchTitle { get; set; }  // タイトル検索
         public string? SelectedGenre { get; set; }  // ジャンル選択
         public string? SelectedPlatform { get; set; }  // プラットフォーム選択
         public string? SelectedStatus { get; set; }  // ステータス選択
-
     }
     
 }
