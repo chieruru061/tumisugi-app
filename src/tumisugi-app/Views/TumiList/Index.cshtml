@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "積みものリスト";
+}
+
+<div></div>
+<h1>お積みもの</h1>
+<hr />
+
+<!-- 検索フォーム -->
+<form method="get" asp-action="Index">
+    <div>
+        <label for="SelectedGenre">カテゴリ:</label>
+        <select id="SelectedGenre" name="SelectedGenre">
+            <option value="">すべて</option>
+            <!-- ジャンルオプションを動的に追加 -->
+        </select>
+    </div>
+</form>

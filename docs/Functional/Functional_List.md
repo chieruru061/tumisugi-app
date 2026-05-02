@@ -16,24 +16,32 @@
 ### 初期表示
 1. TumiSugiにアクセスする
 2. 初期表示でcontrollerは画面情報を返却する
-    1. カテゴリDDLに設定する、カテゴリ一覧
-    2. 積み状態DDLに設定する、ステータス一覧
-    3. プラットフォームDDLに設定する、プラットフォーム一覧
-    4. 一覧表示用のお積みもの一覧情報
+  1. カテゴリDDLに設定する、カテゴリ一覧
+  2. 積み状態DDLに設定する、ステータス一覧
+  3. プラットフォームDDLに設定する、プラットフォーム一覧
+  4. 一覧表示用のお積みもの一覧情報
 3. Viewは受け取った情報をDDLに設定
 4. Viewは受け取ったお積みもの一覧情報を10件ずつ表示する(詳細は検索機能参照)
+
+※各トランザクション画面から戻ってきた場合はSessionStrageから画面状態を復元する
 
 
 ### 検索
 1. ユーザは検索条件を入力し、検索を行うことができる。
 2. 検索条件
-    1. カテゴリDDL
-    2. 積み状態DDL
-    3. プラットフォームDDL
-    4. タイトルテキストボックス
+  1. カテゴリDDL
+  2. 積み状態DDL
+  3. プラットフォームDDL
+  4. タイトルテキストボックス
 3. 検索ボタン押下で、controllerにパラメータとして検索条件を渡す
 4. controllerは検索条件に合致するお積みもの一覧情報を返却する
 5. Viewは受け取ったお積みもの一覧情報を10件ずつ表示する
+6. sessionStrageに検索状態を保持する
+  1. カテゴリDDL
+  2. 積み状態DDL
+  3. プラットフォームDDL
+  4. タイトルテキストボックス
+  5. ソート
 
 ### 追加ボタン
 1. 追加ボタン(+)クリックで、お積みもの追加画面に遷移する。
@@ -92,10 +100,10 @@
 ## API / コントローラ設計
 ※条件入力が空ならクエリ文字列に含めない。
 - Controller: Index()
-  - GET /List/Index?page={1}&pageSize={10}&sort={Status:Asc,UpdateAt:Desc}
+  - GET /List/Index?page={1}&sort={Status:Asc,UpdateAt:Desc}
   - Response: RazorView
 - Controller: Search()
-  - GET /List/Search?page={ページャ番号}&pageSize={10}&sort={ソート対象を表す数値:1or2,4:2}&title={検索テキストボックス}&genre={カテゴリDDLの値}&status={積み状態DDLの値}&platform={プラットフォームDDLの値}
+  - GET /List/Search?page={ページャ番号}&sort={ソート対象:[Asc/Desc],ソート対象:[Asc/Desc] ...}&title={検索テキストボックス}&genre={カテゴリDDLの値}&status={積み状態DDLの値}&platform={プラットフォームDDLの値}
   - Response: RazorView
 
 ## 例外処理とログ
